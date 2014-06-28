@@ -1,0 +1,36 @@
+// Selection Sort
+// Time Complexity O(N^2)
+// N -> Number of elements
+#include <cstdio>
+using namespace std;
+#define mx 10000
+void swap(int *a,int *b)
+{
+    int temp = *a;
+    *a=*b;
+    *b=temp;
+}
+void Selection_Sort(int A[],int N)
+{
+    for(int i=1;i<N;i++)
+    {
+        int min_idx = i ;
+        for(int j=i+1;j<=N;j++)
+        {
+            if(A[j]<A[min_idx])
+            {
+                min_idx = j ;
+            }
+        }
+        swap(&A[i],&A[min_idx]);
+    }
+}
+int main()
+{
+    int N,A[mx+10]; // N is the number of elements
+    scanf("%d",&N);
+    for(int i=1;i<=N;i++) scanf("%d",&A[i]);
+    Selection_Sort(A,N);
+    for(int i=1;i<=N;i++) printf("%d ",A[i]);
+    return 0;
+}
