@@ -1,0 +1,50 @@
+// Bucket Sort
+// Only float numbers are approved for this sorting algorithm .
+// Numbers must be greater than or equal to 0 and less than from 1  . Negative numbers is not approved for this sorting algorithm .
+// Time Complexity O(N)
+#include <cstdio>
+#include <vector>
+using namespace std;
+#define mx 10000000
+float A[mx+10];
+vector <float> Insertion_Sort(vector <float> V)
+{
+    for(int i=1;i<V.size();i++)
+    {
+        float key = V[i];
+        int j=i-1;
+        while(j>-1&&V[j]>key)
+        {
+            V[j+1]=V[j];
+            j--;
+        }
+        V[j+1]=key;
+    }
+    return V;
+}
+void Bucket_Sort(float A[],int N)
+{
+    vector <float> B[N+1];
+    for(int i=1;i<=N;i++)
+    {
+        int bi = N*A[i];
+        B[bi].push_back(A[i]);
+    }
+    for(int i=0;i<=N;i++) B[i] = Insertion_Sort(B[i]);
+    int index=1;
+    for(int i=0;i<=N;i++)
+    {
+        for(int j=0;j<B[i].size();j++)
+        {
+            A[index++]=B[i][j];
+        }
+    }
+}
+int main()
+{
+    int N; // N is the number of elements
+    scanf("%d",&N);
+    for(int i=1;i<=N;i++) scanf("%f",&A[i]);
+    Bucket_Sort(A,N);
+    for(int i=1;i<=N;i++) printf("%f ",A[i]);
+}
