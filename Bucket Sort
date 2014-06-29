@@ -7,20 +7,20 @@
 using namespace std;
 #define mx 10000000
 float A[mx+10];
-vector <float> Insertion_Sort(vector <float> V)
+void Insertion_Sort(float *start,float *finish)
 {
-    for(int i=1;i<V.size();i++)
+    int limit = finish - start ;
+    for(int i=1;i<=limit;i++)
     {
-        float key = V[i];
+        float key = *(start+i);
         int j=i-1;
-        while(j>-1&&V[j]>key)
+        while(j>-1&&*(start+j)>key)
         {
-            V[j+1]=V[j];
+            *(start+j+1)=*(start+j);
             j--;
         }
-        V[j+1]=key;
+        *(start+j+1)=key;
     }
-    return V;
 }
 void Bucket_Sort(float A[],int N)
 {
@@ -30,7 +30,7 @@ void Bucket_Sort(float A[],int N)
         int bi = N*A[i];
         B[bi].push_back(A[i]);
     }
-    for(int i=0;i<=N;i++) B[i] = Insertion_Sort(B[i]);
+    for(int i=0;i<=N;i++) Insertion_Sort(&B[i][0],&B[i][B[i].size()-1]);
     int index=1;
     for(int i=0;i<=N;i++)
     {
