@@ -1,0 +1,41 @@
+// Shell Sort
+// Best Case O(N)
+// Worst Case O(Nlog^2N)
+// Average Case O(Nlog^2N or N^3/2)
+// Memory O(1)
+// Stable : NO
+// N -> Number of elements
+#include <cstdio>
+using namespace std;
+#define mx 100000
+void Insertion_Sort(int *start,int *finish)
+{
+    int limit = finish - start ;
+    for(int i=1;i<=limit;i++)
+    {
+        int key = *(start+i);
+        int j=i-1;
+        while(j>-1&&*(start+j)>key)
+        {
+            *(start+j+1)=*(start+j);
+            j--;
+        }
+        *(start+j+1)=key;
+    }
+}
+void Shell_Sort(int arr[],int N)
+{
+    for(int gap = N/2 ; gap >=1 ;  gap = gap/2)
+    {
+        Insertion_Sort(&arr[gap],&arr[N]);
+    }
+}
+int main()
+{
+    int N,arr[mx+10]; // N is the number of elements
+    scanf("%d",&N);
+    for(int i=1;i<=N;i++) scanf("%d",&arr[i]);
+    Shell_Sort(arr,N);
+    for(int i=1;i<=N;i++) printf("%d ",arr[i]);
+    return 0;
+}
