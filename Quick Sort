@@ -1,5 +1,9 @@
 // Quick Sort
-// Time Complexity O(NlogN)
+// Best Case O(NlogN)
+// Worst Case O(N^2)
+// Average Case O(NlogN)
+// Memory O(N)
+// Stable : NO
 // N -> Number of elements
 #include <cstdio>
 using namespace std;
