@@ -1,5 +1,9 @@
 // Heap Sort
-// Time Complexity O(NlogN)
+// Best Case O(NlogN)
+// Worst Case O(NlogN)
+// Average Case O(NlogN)
+// Memory O(1)
+// Stable : NO
 // N -> Number of elements
 #include <iostream>
 #include <cstdio>
