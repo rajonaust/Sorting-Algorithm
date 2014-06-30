@@ -1,7 +1,12 @@
 // Bucket Sort
 // Only float numbers are approved for this sorting algorithm .
 // Numbers must be greater than or equal to 0 and less than from 1  . Negative numbers is not approved for this sorting algorithm .
-// Time Complexity O(N)
+// Best Case O(N)
+// Worst Case O(N^2)
+// Average Case O(N*K)
+// Memory O(N+K)
+// Stable : YES
+// N -> Number of elements K -> vector size
 #include <cstdio>
 #include <vector>
 using namespace std;
