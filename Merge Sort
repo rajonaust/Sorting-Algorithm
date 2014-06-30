@@ -1,5 +1,9 @@
 // Merge Sort
-// Time Complexity O(NlogN)
+// Best Case O(NlogN)
+// Worst Case O(NlogN)
+// Average Case O(NlogN)
+// Memory O(N)
+// Stable : YES
 // N -> Number of elements
 #include <cstdio>
 using namespace std;
